@@ -1,6 +1,7 @@
 const Discord = require('discord.js')
 const client = new Discord.Client()
 const { prefix, token } = require('./config/config.json')
+const Jimp = require('./jimp')
 const commands = require('./commands/commands')
 
 client.on('ready', () => {
@@ -11,14 +12,13 @@ client.on('ready', () => {
 
 
 client.on('message', async message => {
+   console.log(`[time:] info: [#${message.channel.name}] <${message.author.username}#${message.author.discriminator}>: ${message.content}`)
 
    if (message.author.bot) return;
    if (message.channel.type === "dm") return;
    if (!message.content.startsWith(prefix)) return;
 
-
    commands(client, message, prefix)
-   
 })
 
 

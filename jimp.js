@@ -1,9 +1,7 @@
 const jimp = require('jimp')
 
-const cookies = ['./img/cookies/cookies1.jpg', './img/cookies/cookies2.jpg']
-
-
-
+// Background
+const cookies = ['./img/cookies/cookies1.jpg', './img/cookies/cookies2.jpg', './img/cookies/cookies3.jpg', './img/cookies/cookies4.jpg', './img/cookies/cookies5.jpg']
 
 module.exports = (client, message) => {
    async function main() {
@@ -13,7 +11,7 @@ module.exports = (client, message) => {
       let canal = client.channels.cache.get("696313293337526274")
       let url_avatar = `${message.member.user.displayAvatarURL().replace('.webp', '.png?size=2048')}`
       let font = await jimp.loadFont(jimp.FONT_SANS_32_BLACK)
-      let mask = await jimp.read('./img/mascara.png')
+      let mask = await jimp.read('./img/mask.png')
       let background = await jimp.read(randomCookies)
       
       jimp.read(url_avatar).then((avatar) => {
@@ -22,8 +20,8 @@ module.exports = (client, message) => {
          mask.resize(150, 150)
          avatar.mask(mask)
          background.resize(600, 266)
-         background.print(font, 180, 175, message.member.user.username)
-         background.composite(avatar, 40, 90).write('./img/welcome.png')
+         background.print(font, 169, 173, message.member.user.username)
+         background.composite(avatar, 22, 42).write('./img/welcome.png')
 
          
          canal.send(``, { files: ["./img/welcome.png"] })

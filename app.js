@@ -3,6 +3,7 @@ const client = new Discord.Client()
 const { prefix, token } = require('./config/config.json')
 const Jimp = require('./jimp')
 const commands = require('./commands/commands')
+const gif = require('./commands/gif')
 
 client.on('ready', () => {
    console.log(`Logged in as ${client.user.tag}!`)
@@ -16,6 +17,10 @@ client.on('message', async message => {
 
    if (message.author.bot) return;
    if (message.channel.type === "dm") return;
+
+   gif(client, message, prefix)
+
+   // Se não for um comando então retorna
    if (!message.content.startsWith(prefix)) return;
 
    commands(client, message, prefix)

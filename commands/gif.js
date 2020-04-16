@@ -6,6 +6,23 @@ const contentFilePath = './json/gif.json'
 // GIF IMAGE
 module.exports = (client, message, prefix) => {
 
+   // LENDO MENSAGENS COM GIFS
+   let gifs = Object.keys(load())
+
+   for (let gif of gifs) {
+      if (message.content.toLowerCase().includes(`:${gif}`)) {
+         let messageContent = ''
+         for (let messageContentSplit of message.content.split(' ')) {
+            if (!messageContentSplit.toLowerCase().includes(`:${gif}`)) {
+               messageContent = messageContent + " " + messageContentSplit
+            }
+         }
+         message.channel.send(`<@${message.author.id}> **disse:**  ${messageContent.trim()}`, { files: [load()[gif]] })
+         message.delete()
+      }
+   }
+
+
    // COMANDOS
    if (!message.content.startsWith(prefix)) return
    const args = message.content.slice(prefix.length).trim().split(/ +/g)

@@ -17,10 +17,22 @@ module.exports = (client, message, prefix) => {
                messageContent = messageContent + " " + messageContentSplit
             }
          }
-         message.channel.send(`<@${message.author.id}> **disse:**  ${messageContent.trim()}`, { files: [load()[gif]] })
+         message.channel.send(`<@${message.author.id}> **disse:**  ${messageContent.trim()}`, { files: [load()[gif][0]] })
+            .catch(() => {
+               message.channel.send(`<@${message.author.id}> **disse:**  ${messageContent.trim()}`, { files: [load()[gif][1]] })
+            })
          message.delete()
       }
    }
+
+
+   // LENDO CANAL DE GIFS
+   /*if (message.channel == '698716007606255778') {
+      console.log(load()['rich'])
+      message.channel.send(``, { files: [load()['rich']] })
+   }*/
+   
+
 
 
    // COMANDOS
@@ -81,17 +93,16 @@ module.exports = (client, message, prefix) => {
             download(emojilink, options, function(err) {
                if (!err) {
                   console.log('GIF BAIXADO!')
+                  msg.edit(`O gif-emote foi adicionado ao servidor, você poderá usa-lo usando *:${nome}* `)
+                  emojiJson[nome.toLowerCase()] = [`./img/gif/${nome}.gif`, emojilink]
+                  save(emojiJson)
+
                } else {
                   console.log('ERROR AO BAIXAR GIF!')
+                  msg.edit("Houve um erro ao adicionar gif :c")
                }
             })
-
-            msg.edit("O gif-emote foi adicionado ao banco de dados local, você poderá usa-lo usando *none* antes do nome do emote")
          })
-      
-      emojiJson[nome.toLowerCase()] = emojilink
-
-      save(emojiJson)
    }
 
 

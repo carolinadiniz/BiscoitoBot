@@ -85,6 +85,7 @@ module.exports = (client, message, prefix) => {
    if (command === 'gif') {
       if (!args[0]) return message.reply("voce esqueceu de adicionar os argumentos \n *gif <nome> <link>")
       if (!args[1]) return message.reply("voce esqueceu de adicionar os argumentos \n *gif <nome> <link>")
+      if (!args[1].includes('.gif')) return message.reply("o link precisa terminar com .gif \n *gif <nome> <link.gif>")
       if (args[0].includes('-')) return message.reply("voce não pode usar - em nomes de emojis \n *gif <nome> <link>")
       if (emojiLoad.includes(nome.toLowerCase()) == true) return message.reply("já existe um gif com este nome")
       

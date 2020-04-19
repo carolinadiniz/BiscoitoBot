@@ -12,9 +12,31 @@ client.on('ready', () => {
 })
 
 
+client.on('raw', async dados => {
+   //console.log(dados.d.embeds)
+
+})
+
+
 client.on('message', async message => {
+
+   if (message.channel.guild.id == 688048480291127370) return
+
+   function date() {
+      let data = new Date()
+      let hour = `${data.getHours()}`
+      let minutes = `${data.getMinutes()}`
+      let seconds = `${data.getSeconds()}`
+
+      if (data.getHours() < 10) hour = `0${data.getHours()}`
+      if (data.getMinutes() < 10) minutes = `0${data.getMinutes()}`
+      if (data.getSeconds() < 10) seconds = `0${data.getSeconds()}`
+
+      return `${hour}:${minutes}:${seconds}`
+   }
+
    // Log de mensagens
-   console.log(`[time:] info: [#${message.channel.name}] <${message.author.username}#${message.author.discriminator}>: ${message.content}`)
+   console.log(`[${date()}] canal: [#${message.channel.name}] <${message.author.username}#${message.author.discriminator}>: ${message.content}`)
 
    if (message.author.bot) return               // Ignora mensagens de Bot 
    if (message.channel.type === 'dm') return    // Igonra mensagens privadas

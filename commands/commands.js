@@ -1,5 +1,7 @@
 const biscoito = require('./biscoito')
+const avatar = require('./avatar')
 const help = require('./help')
+
 
 module.exports = (client, message, prefix) => {
    if (!message.content.startsWith(prefix)) return
@@ -9,6 +11,10 @@ module.exports = (client, message, prefix) => {
 
    if (command === 'biscoito') {
       biscoito(message)
+   }
+
+   if (command === 'avatar') {
+      avatar(message)
    }
 
    if (command === 'help') {

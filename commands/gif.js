@@ -17,11 +17,10 @@ module.exports = (client, message, prefix) => {
                messageContent = messageContent + " " + messageContentSplit
             }
          }
-         message.channel.send(`<@${message.author.id}> **disse:**  ${messageContent.trim()}  (:${gif})`, { files: [load()[gif][0]] })
+         message.channel.send(``, { files: [load()[gif][0]] })
             .catch(() => {
-               message.channel.send(`<@${message.author.id}> **disse:**  ${messageContent.trim()}  (:${gif})`, { files: [load()[gif][1]] })
+               message.channel.send(``, { files: [load()[gif][1]] })
             })
-         message.delete()
       }
    }
 

@@ -3,6 +3,7 @@ const client = new Discord.Client()
 const { prefix, token } = require('./config/config.json')
 const commands = require('./commands/commands')
 const gif = require('./commands/gif')
+const game = require('./game/game')
 
 
 client.on('ready', () => {
@@ -18,9 +19,15 @@ client.on('raw', async dados => {
 })
 
 
+client.on('ready', test => {
+   console.log()
+})
+
+
+
 client.on('message', async message => {
 
-   if (message.channel.guild.id == 688048480291127370) return
+   //if (message.channel.guild.id == 688048480291127370) return
 
    function date() {
       let data = new Date()
@@ -43,6 +50,9 @@ client.on('message', async message => {
 
    gif(client, message, prefix)
    commands(client, message, prefix)
+   game(client, message)
+   
+   
 })
 
 client.login(token)

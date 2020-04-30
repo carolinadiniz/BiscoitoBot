@@ -17,7 +17,7 @@ module.exports = (message) => {
       color: 7506394
    }
       
-   message.channel.send({embed})
+   message.channel.send({embed : embed})
 
    //https://cdn.discordapp.com/avatars/+message.author.id+/+message.author.avatar+.png
 }

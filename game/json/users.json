@@ -1,1 +1,53 @@
-{"21212121212121212121":{"username":"Haru","discriminator":"7230","level":4,"xp":100,"itens":{"equipped":{},"inventory":{}},"joined":false},"175468439979163648":{"username":"Kaworii","discriminator":"7229","class":"barda","level":1,"xp":0,"hp":1000,"itens":{"equipped":{},"inventory":{}},"joined":false}}
+{
+	"GuildID-1283718297391": {
+		"status": true,
+		"channel_id": "ChannelID-12831892371892731",
+		"users": {
+			"user_id-1289371928731267": {
+				"username": "haru",
+				"discriminator": "7229",
+				"class": "barda",
+				"level": 1,
+				"xp": 0,
+				"hp": 1000,
+				"itens": {
+					"equipped": {},
+					"inventory": {}
+				},
+				"joined": true
+			}
+		}
+	},
+	"656365698578382858": {
+		"status": true,
+		"channel_id": "705255024808296519",
+		"users": {
+			"user_id": {
+				"username": "haru",
+				"discriminator": "7229",
+				"class": "barda",
+				"level": 1,
+				"xp": 0,
+				"hp": 1000,
+				"itens": {
+					"equipped": {},
+					"inventory": {}
+				},
+				"joined": true
+			}
+		},
+		"175468439979163649": {
+			"username": "Kaworiii",
+			"discriminator": "7233",
+			"class": "barda",
+			"level": 1,
+			"xp": 0,
+			"hp": 1000,
+			"itens": {
+				"equipped": {},
+				"inventory": {}
+			},
+			"joined": false
+		}
+	}
+}
